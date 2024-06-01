@@ -1,0 +1,30 @@
+\mysection[JungleGreen]{\centering Erwartungswert, Varianz, Covarianz}
+\mysubsection{Allgemeiner Erwartungswert}
+\DEF{Erwartungswert (nicht-negativ)}{Sei $X:\Omega\rightarrow\mathbb{R}_+$ eine ZV mit nicht-negativen Werten. Dann $\mathbb{E}[X]=\int_0^{\infty}(1-F_X(x))dx$ der Erwartungswert von $X$.}
+
+\SA{}{Sei $X$ eine nicht-negative ZV. Dann gilt $\mathbb{E}[X]\geq 0$. Gleichheit gilt genau dann wenn $X=0$ fast sicher gilt.}
+
+\DEF{Zerlegung von $X$ in positiven und negativen Teil}{ Der positive und negative Teil von $X$ sind die ZV $X_+,X_-$ definiert durch $X_+(w)=max(X,0)=\begin{cases}
+    X(w) & \text{$X(w)\geq 0,$}\\
+    0 & \text{$X(w)<0,$}
+\end{cases}$ und $X_-(w)=-min(X,0)=max(-X,0)=\begin{cases}
+    -X(w) & \text{$X(w)\leq 0,$}\\
+    0 & \text{$X(w)>0.$}
+\end{cases}$. 
+
+Es gilt $X=X_+-X_-$ und $|X|=X_++X_-$.}
+
+\DEF{Allgemeiner Erwartungswert}{Sei $X$ eine reellwertige ZV. $\mathbb{E}[|X|]<\infty \Rightarrow \mathbb{E}[X_-],\mathbb{E}[X_+]<\infty \Rightarrow \mathbb{E}[X]=\mathbb{E}[X_+]-\mathbb[X_-]$. 
+
+Für $X\geq 0$ ist $\mathbb{E}[X]$ immer definiert und kann endlich oder unendlich sein. Wenn $X$ hingegen kein konstantes Vorzeichen hat und $\mathbb{E}[|X|]<\infty$ nicht erfüllt $\Rightarrow \mathbb{E}[X]$ undefiniert.}
+
+
+\mysubsection{Erwartungswert diskreter ZV}
+\DEF{Erwartungswert (diskret)}{Sei $X:\Omega\rightarrow\mathbb{R}$ eine diskrete ZV, deren Werte fast sicher in $W$ (endlich oder abzählbar) liegen. Dann gilt $\mathbb{E}[X]=\sum_{x\in W}x\cdot\mathbb{P}[X=x]=\sum_{x\in W}x\cdot p_X(x)$, sofern $\mathbb{E}[X]$ wohldefiniert.}
+
+\SA{}{Sei $X:\Omega\rightarrow\mathbb{R}$ eine diskrete ZV. $\mathbb{E}[X]$ wohldefiniert $\Leftrightarrow$ Reihe $\sum_{x\in W}x\cdot\mathbb{P}[X=x]$ konvergiert absolut $\Leftrightarrow \sum_{x\in W}|x|\cdot\mathbb{P}[X=x]<\infty$.}
+
+\SA{}{Sei $X:\Omega\rightarrow\mathbb{R}$ eine diskrete ZV. Sei $\varphi:\mathbb{R}\rightarrow\mathbb{R}$. Dann $\mathbb{E}[\varphi(X)]=\sum_{x\in W}\varphi(x)\cdot\mathbb{P}[X=x]$, sofern $\mathbb{E}[X]$ wohldefiniert.}
+
+
+\mysubsection{Erwartungswert stetiger ZV}

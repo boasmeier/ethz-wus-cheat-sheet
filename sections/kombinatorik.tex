@@ -1,0 +1,22 @@
+\mysection[Orchid]{\centering Kombinatorik}
+\DEF{Produktregel}{Sei $n1, n2\in\mathbb{N}$ die \# Auswahlmöglichkeiten des ersten bzw. zweiten Elements. Wobei $n1$ und $n2$ unabhängig. Dann sind die \# Auswahlmöglichkeiten insgesamt gegeben durch $n = n1 \cdot n2$.}
+
+\DEF{Summenregel}{Sei $n1, n2\in\mathbb{N}$ die \# Auswahlmöglichkeiten des ersten bzw. zweiten Elements. Wobei $n1$ und $n2$ nicht gleichzeitig eintreten können, also abhängig sind. Dann sind die \# Auswahlmöglichkeiten insgesamt gegeben durch $n = n1+n2$.}
+
+\DEF{Permutation}{Eine bestimmte anordnung von Elementen. Permutationen sind also immer geordnet!}
+
+\DEF{Kombination}{Eine ungeordnete Auswahl von $k\leq n$ der $n$ Elemente. Eine Kombination ist also nichts anderes als eine Teilmenge mit $k$ Elementen.}
+
+\DEF{Variation}{Eine geordnete Auswahl von $k\leq n$ der $n$ Elemente. Eine Variation nennt man auch eine k-Permutation.}
+
+\DEF{Permutationen ohne Wiederholung}{Man kann $n$ paarweise verschiedene Elemente auf $n!$ viele Arten (z.B. nebeneinander) anordnen.}
+
+\DEF{Permutationen nicht unterscheidbarer Elemente}{Die Anzahl verschiedener Permutationen von $n$ Elementen, von denen $n1$ nicht unterscheidbare Elemente vom Typ 1, $n2$ " Typ 2, ..., $n_k$ " Typ $k$ sind, ist gegeben durch $\frac{n!}{n1!n2!...n_k!}$ wobei $n=\sum_{i=1}^kn_i$.}
+
+\DEF{Kombinationen ohne Wiederholung}{Man kann $k\leq n$ aus den $n$ paarweise verschiedenen Elementen auf ${n\choose k}=\frac{n^{\underline{k}}}{k!}=\frac{n\cdot(n-1)\cdot ...\cdot(n-k+1)}{k\cdot (k-1) \cdot ... \cdot 1}=\frac{n!}{k!(n-k)!}={n\choose n-k}$ viele Arten auswählen, wobei Elemente nicht mehrfach verwendet werden können (ohne Zurücklegen).}
+
+\DEF{Kombinationen mit Wiederholung}{Man kann $k$ aus den $n$ paarweise verschiedenen Elementen auf ${n+k-1\choose k}=\frac{(n+k-1)!}{k!(n-1)!}$ viele Arten auswählen, wobei Elemente mehrfach verwendet werden können (mit Zurücklegen).}
+
+\DEF{Variationen ohne Wiederholung}{Man kann mit $n$ paarweise verschiedenen Elementen $n^{\underline{m}}=\frac{n!}{(n-m)!} = n\cdot (n-1)\cdot ...\cdot (n-(m-1))$ viele Sequenzen der Länge $m$ bilden, wobei Elemente nicht mehrfach verwendet werden können (ohne Zurücklegen).}
+
+\DEF{Variationen mit Wiederholung}{Man kann mit $n$ paarweise verschiedenen Elementen $n^m$ viele Sequenzen der Länge $m$ bilden, wobei Elemente mehrfach verwendet werden können (mit Zurücklegen).}
