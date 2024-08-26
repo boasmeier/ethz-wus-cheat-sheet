@@ -1,4 +1,5 @@
-\mysection[WildStrawberry]{\centering Beispiele}
+\mysection[WildStrawberry]{Beispiele}
+
 \mysubsection{Würfel}
 1) Mindestens eine Sechs bei 4 Würfen mit einem Würfel: $1-(\frac{5}{6})^4 = 51.78\%$.
 
@@ -32,11 +33,11 @@
 
 $F_X(x) = \begin{cases}
     0 & \text{if } x<0, \\
-    1-\mathbb{P}(A) & \text{if } 0\leq x<1, \\
+    1-\P(A) & \text{if } 0\leq x<1, \\
     1 & \text{if } x\geq 1.
 \end{cases}$
 
-2) Sei $X$ eine ZV mit cfd $F_X$. Sei $Y=exp(X)=e^X$. Dann ist $F_Y(x)=\mathbb{P}[Y\leq x]=\mathbb{P}[e^X\leq x]=\mathbb{P}[log(e^X)\leq log(x)]=\mathbb{P}[X\leq log(x)]=F_X(log(x))$. Weil $e^X>0$ $\forall x\in\mathbb{R} \Rightarrow \mathbb{P}[e^X\leq x]=0$ $\forall x\leq 0$. Somit erhalten wir
+2) Sei $X$ eine ZV mit cfd $F_X$. Sei $Y=exp(X)=e^X$. Dann ist $F_Y(x)=\P[Y\leq x]=\P[e^X\leq x]=\P[log(e^X)\leq log(x)]=\P[X\leq log(x)]=F_X(log(x))$. Weil $e^X>0$ $\forall x\in\R \Rightarrow \P[e^X\leq x]=0$ $\forall x\leq 0$. Somit erhalten wir
  
 $F_Y(x) = \begin{cases}
     0 & \text{if } x\leq 0, \\

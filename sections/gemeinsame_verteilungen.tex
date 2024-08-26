@@ -1,0 +1,72 @@
+\mysection[BrickRed]{Gemeinsame Verteilungen}
+
+\mysubsection{Gemeinsame Diskrete Verteilung}
+\DEF{Gemeinsame Diskrete Verteilung}{Seien $X_1,...,X_n$ diskrete ZV. Seien $W_k\subset\R$ endlich oder abzählbar s.d. $X_k\in W_k$ f.s. für $k\in[n]$.
+
+Die gemeinsame Verteilung von $(X_1,...,X_n)$ (joint probability distribution, jpd) ist eine Familie von Wahrscheinlichkeiten $\{p(x_1,...,x_n)\}_{x_1\in W_1,...,x_n\in W_n}$, wobei $p:\R^n\rightarrow[0,1]$ die gemeinsame Gewichtsfunktion (joint probability mass function, jpmf) bezeichnet, $p(x_1,...,x_n)=\P[X_1=x_1,...,X_n=x_n]$.}
+
+\SA{5.3}{Eine gemeinsame Verteilung von ZV $X_1,...,X_n$ erfüllt stets $$\sum_{x_1\in W_1,...,x_n\in W_n}p(x_1,...,x_n)=1.$$}
+
+\SA{5.5}{Aus der jpmf $p$ bekommt man die jpdf $F$ via
+\begin{align*}
+    F(x_1,...,x_n)&=\P[X_1\leq x_1,...,X_n\leq x_n]\\
+    &=\sum_{y_1\leq x_1,...,y_n\leq x_n}\P[X_1=y_1,...,X_n=y_n]\\
+    &=\sum_{y_1\leq x_1,...,y_n\leq x_n}p(y_1,...,y_n).
+\end{align*}}
+
+\SA{5.6 Verteilung des Bildes}{Sei $n\geq 1$. Sei $\varphi:\R^n\rightarrow\R$. Seien $X_1,...,X_n$ diskrete ZV mit Werten jeweils in $W_1,...,W_n$ f.s. Dann ist $Z=\varphi(X_1,...,X_n)$ eine diskrete ZV, die f.s. Werte in $W=\varphi(W_1 \times ...\times W_n)$ annimmt. Zudem ist die Verteilung von $Z$ $\forall z\in W$ gegeben durch $$\P[Z=z]=\sum_{\substack{x_1\in W_1,...,x_n\in W_n,\\\varphi(x_1,...,x_n)=z}}\P[X_1=x_1,...,X_n=x_n].$$}
+
+\SA{5.7 Randverteilung}{Seien $X_1,...,X_n$ diskrete ZV mit jpmf $p$. $\forall k\in[n]$, $\forall x\in W_k$ gilt $$\P[X_k=x]=\sum_{\substack{x_l\in W_l,\\l\in[n]\setminus\{k\}}}p(x_1,...,x_{k-1},x,x_{k+1},...,x_n).$$
+
+Wir bezeichnen die Verteilung von $X_k$ als $k-$te Randverteilung.
+
+Analog ist die Verteilungsfunktion der $k-$ten Randverteilung $F_{X_k}$ gegeben durch \begin{align*}
+    F_{X_k}(x)&=\P[X_k\leq x]\\
+&=\P[X_1<\infty,...,X_{k-1}<\infty,X_k\leq x,\\&\hspace{17px}X_{k+1}<\infty,...,X_n<\infty]\\
+&=\lim_{\substack{x_l\rightarrow\infty,\\l\in[n]\setminus\{k\}}}F(x_1,...,x_{k-1},x,x_{k+1},...,x_n).
+\end{align*}}
+
+\SA{5.9 Erwartungswert des Bildes}{Seien $X_1,...,X_n$ diskrete ZV mit gemeinsamer Verteilung $\{p(x_1,...,x_n)\}_{x_1\in W_1,...,x_n\in W_n}$. Sei $\varphi:\R^n\rightarrow\R$. Dann $$\E[\varphi(X_1,...,X_n)]=\sum_{x_1,...,x_n}\varphi(x_1,...,x_n)p(x_1,...,x_n),$$ solange die Summe wohldefiniert ist, wobei wir hier über alle $x_1\in W_1,...,x_n\in W_n$ summieren.}
+
+\SA{5.10 Unabhängigkeit}{Seien $X_1,...,X_n$ diskrete ZV mit gemeinsamer Verteilung $\{p(x_1,...,x_n)\}_{x_1\in W_1,...,x_n\in W_n}$. Äquivalent
+\begin{enumerate}
+    \item $X_1,...,X_n$ unabhängig
+    \item $\forall x_1\in W_1,...,x_n\in W_n:$ $p(x_1,...,x_n)= \P[X_1=x_1]\cdot...\cdot\P[X_n=x_n].$
+\end{enumerate}}
+
+\mysubsection{Gemeinsame Stetige Verteilung}
+\DEF{Gemeinsame stetige Verteilung}{Sei $n\geq 1$. Die ZV $X_1,...,X_n:\Omega\rightarrow\R$ besitzen eine stetige gemeinesame Verteilung, falls $\exists$ $f:\R^n\rightarrow\R_+$ s.d. $\forall a_1,...,a_n\in\R$ gilt $$\P[X_1\leq a_1,...,X_n\leq a_n]=$$ $$\int_{-\infty}^{a_1}\hdots\int_{-\infty}^{a_n}f(x_1,...,x_n)dx_n\hdots dx_1.$$
+
+Die Funktion $f$ heisst gemeinsame Dichte von $(X_1,...,X_n)$ (joint probability density function, jpdf).}
+
+\SA{5.12}{Sei $f$ die gemeinsame Dichte der ZV $(X_1,...,X_n)$. Dann $$\int_{-\infty}^{\infty}\hdots\int_{-\infty}^{\infty}f(x_1,...,x_n)dx_n\hdots dx_1=1.$$
+
+Umgekehrt kann jeder Funktion $f:\R^n\rightarrow\R_+$, die obige Gleichung erfüllt, ein Wahr'raum $(\Omega,\mathcal{F},\P)$ und $n$ ZV $X_1,...,X_n$ zugeordnet werden, s.d. $f$ die gemeinsame Dichte von $X_1,...,X_n$ ist.}
+
+\DEF{Interpretation}{Betrachen wir z.B. zwei Zufallsvariablen $X,Y$. Intuitiv beschreibt $f(x,y)dxdy$ dabei die Wahr'keit, dass ein Zuallspunkt $(X,Y)$ in einem Rechteck $[x,x+dx]\times[y,y+dy]$ liegt.}
+
+\SA{5.15 Erwartungswert des Bildes}{Sei $\varphi:\R^n\rightarrow\R$. Falls $X_1,...,X_n$ eine gemeinsame Dichte $f$ besitzen, dann lässt sich der Erwartungswert der ZV $\varphi(X_1,...,X_n)$ berechnen als $$\E[\varphi(X_1,...,X_n)]=$$ $$\int_{-\infty}^{\infty}\hdots\int_{-\infty}^{\infty}\varphi(x_1,...,x_n)f(x_1,...,x_n)dx_n\hdots dx_1.$$}
+
+\DEF{5.18 Randverteilung: Verteilungsfunktion}{Haben $X$ und $Y$ die gemeinsame Verteilungsfunktion $F$, so ist die Funktion $F_X:\R\rightarrow[0,1]$ gegeben durch \begin{align*}
+    x\mapsto F_X(x)=\P[X\leq x]&=\P[X\leq x,Y<\infty]\\&=\lim_{y\rightarrow\infty}F(x,y)
+\end{align*} die Verteilungsfunktion der Randverteilung von $X$. 
+
+Analog ist $F_Y:\R\rightarrow[0,1]$ gegeben durch \begin{align*}
+    y\mapsto F_Y(y)=\P[Y\leq y]&=\P[X<\infty,Y\leq Y]\\&=\lim_{x\rightarrow\infty}F(x,y).
+\end{align*}}
+
+\DEF{5.18 Randverteilung: Dichtefunktion}{Haben $X,Y$ eine gemeinsame Dichte $f(x,y)$, so haben auch die Randverteilungen von $X,Y$ Dichten $f_X:\R\rightarrow\R_+$ bzw. $f_Y:\R\rightarrow\R_+$. Es gilt
+\begin{align*}
+    f_X(x)&=\int_{-\infty}^{\infty}f(x,y)dy,\\
+    f_Y(y)&=\int_{-\infty}^{\infty}f(x,y)dx.
+\end{align*}}
+
+\SA{5.21 Unabhängigkeit stetiger ZV}{Seien $X_1,...,X_n$ ZV mit Dichten $f_{X_1},...,f_{X_n}$. Äquivalent:
+\begin{enumerate}
+    \item $X_1,...,X_n$ unabhängig,
+    \item $X_1,...,X_n$ sind gemeinsam stetig mit gemeinsamer Dichte $f:\R^n\rightarrow\R_+$, $f(x_1,...,x_n)=f_{X_1}(x_1)\cdot...\cdot f_{X_n}(x_n)$.
+\end{enumerate}}
+
+
+
+

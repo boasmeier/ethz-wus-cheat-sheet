@@ -1,8 +1,11 @@
 % Include packages
 \usepackage[utf8]{inputenc}
-\usepackage{amssymb, amsmath, amsthm, amsfonts, bm, multicol, multirow, mathrsfs, graphicx, float, calc, ifthen, titlesec, enumitem, syntonly, hyperref, geometry, lipsum}
+\usepackage{amssymb, amsmath, amsthm, amsfonts, bm, multicol, multirow, mathrsfs, tabularx, booktabs, graphicx, float, calc, ifthen, titlesec, enumitem, syntonly, hyperref, geometry, lipsum}
 \usepackage[dvipsnames]{xcolor}
 \usepackage{tikz}
+
+% Configure paragraph spacing and indent.
+\usepackage[skip=0pt plus2pt, indent=0pt]{parskip}
 
 % Set paper size, page layout and margins (package: geometry)
 \geometry{a4paper, landscape}
@@ -21,8 +24,12 @@
     pdftitle={Bachelor Thesis}
 }
 
-% Configure formatting of itemize lists (package: enumitem)
-\setlist{noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt}
+% Configure formatting of itemize and enumerate lists (package: enumitem)
+\setitemize{itemsep=0.5pt,topsep=0pt,parsep=0pt,partopsep=0pt,leftmargin=15pt}
+\setenumerate{itemsep=0.5pt,topsep=0pt,parsep=0pt,partopsep=0pt,leftmargin=15pt}
+
+% Make itemize bullet smaller.
+\renewcommand\labelitemi{\tiny$\bullet$}
 
 \pagestyle{empty}
 
@@ -36,38 +43,50 @@
 \titleformat{\subsection}
   {\normalfont\fontsize{10}{10}\bfseries}{\thesection}{1em}{}
 
-\newcommand*{\mysection}[2][black]{\vskip 0pt\vspace{-14pt}\section{#2}\vspace{-14pt}\titellinie\colorlet{chaptercolor}{#1}}
+\newcommand*{\mysection}[2][black]{\vskip 0pt\vspace{-14pt}\section{\centering #2}\vspace{-14pt}\titellinie\colorlet{chaptercolor}{#1}}
 
 \newcommand*{\mysubsection}[1]{\vspace{-2mm}\color{chaptercolor}\subsection{#1}
 \vspace{-1mm}\hrule\vspace{3.5mm}\color{black}}
 
-\newcommand{\COL}[1]{\color{chaptercolor}\bf{#1}\color{black}\\}
+\newcommand{\COL}[1]{\color{chaptercolor}\textbf{#1}\color{black}\\}
 %\newcommand{\DEF}[2]{\color{chaptercolor}\bf{Def #1}:\color{black}    \hspace{0.2cm} #2}
-\newcommand{\DEF}[2]{\color{chaptercolor}\bf{#1}:\color{black}\hspace{0.2cm} #2}
+\newcommand{\DEF}[2]{\color{chaptercolor}\textbf{#1}:\color{black}\hspace{0.2cm} #2}
 
 \newcommand{\KRZ}[2]{\vspace{1mm} \hline \vspace{1mm} \color{chaptercolor}{RC #1}:\color{black} \   \hspace{0.2cm}\vspace{1mm}   {\begin{minipage}{20em}
 #2 \end{minipage}} \vspace{1mm}  \hline \vspace{1mm}  \\}
 
-\newcommand{\RC}[2]{\color{chaptercolor}\bf{RC #1}:\color{black}    \hspace{0.2cm} #2}
+\newcommand{\RC}[2]{\color{chaptercolor}\textbf{RC #1}:\color{black}    \hspace{0.2cm} #2}
 
-\newcommand{\NOTE}[2]{\color{chaptercolor}\bf{Note #1}:\color{black}    \hspace{0.2cm} #2 \\}
+\newcommand{\NOTE}[2]{\color{chaptercolor}\textbf{Note #1}:\color{black}    \hspace{0.2cm} #2}
 
-\newcommand{\COR}[2]{\color{chaptercolor}\bf{Cor #1}:\color{black}    \hspace{0.2cm} #2}
+\newcommand{\COR}[2]{\color{chaptercolor}\textbf{Cor #1}:\color{black}    \hspace{0.2cm} #2}
 
-\newcommand{\LEM}[2]{\color{chaptercolor}\bf{Lem #1}:\color{black}    \hspace{0.2cm} #2 \\}
+\newcommand{\LEM}[2]{\color{chaptercolor}\textbf{Lem #1}:\color{black}    \hspace{0.2cm} #2}
 
-\newcommand{\THE}[2]{\color{chaptercolor}\bf{Trm #1}:\color{black}    \hspace{0.2cm} #2 \\}
+\newcommand{\THE}[2]{\color{chaptercolor}\textbf{Trm #1}:\color{black}    \hspace{0.2cm} #2}
 
-\newcommand{\SA}[2]{\color{chaptercolor}\bf{S #1}:\color{black}    \hspace{0.2cm} #2}
+\newcommand{\SA}[2]{\color{chaptercolor}\textbf{S #1}:\color{black}    \hspace{0.2cm} #2}
+
+\newcommand{\EXAMPLE}[2]{\color{chaptercolor}\textbf{Example #1}:\color{black}    \hspace{0.2cm} #2}
+
+% Define custom commands for math
+\def\N{\mathbb{N}}
+\def\Z{\mathbb{Z}}
+\def\R{\mathbb{R}}
+\def\C{\mathbb{C}}
+
+\def\P{\mathbb{P}}
+\def\E{\mathbb{E}}
+\def\V{\mathbb{V}}
 
 \makeatother
 
 
 \setcounter{secnumdepth}{0}
-\setlength{\parindent}{0pt}
-\setlength{\parskip}{0pt plus 0.5ex}
-\setlength{\marginparwidth}{0pt}
-\setlength{\marginparsep}{0pt}
+%\setlength{\parindent}{0pt}
+%\setlength{\parskip}{0pt plus 0.5ex}
+%\setlength{\marginparwidth}{0pt}
+%\setlength{\marginparsep}{0pt}
 
 
 %\setlength{\abovedisplayskip}{0pt}

@@ -1,0 +1,253 @@
+\mysection[Aquamarine]{\centering Weiteres}
+\mysubsection{Rechenregeln für Summen}
+\begin{enumerate}
+    \item $\sum_{i=L}^Ux_i=\sum_{i=L}^{I-1}x_i+\sum_{i=I}^Ux_i$
+    \item $\sum_{i=L}^Ucx_i=c\sum_{i=L}^Ux_i$
+    \item $\sum_{i=L}^Ux_i\pm\sum_{i=L}^Uy_i=\sum_{i=L}^U(x_i\pm y_i)$
+    \item $\sum_{i=L_1}^{U_1}x_{i_1}\cdot ... \cdot \sum_{i=L_n}^{U_n}x_{i_n}=\sum_{i=L_1}^{U_1}\cdot ... \cdot \sum_{i=L_n}^{U_n}(x_{i_1}\cdot ...\cdot x_{i_n})$
+    \item $\sum_{i=L_1}^{U_1}\sum_{j=L_2}^{U_2}x_{i,j}=\sum_{j=L_2}^{U_2}\sum_{i=L_1}^{U_1}x_{i,j}$
+\end{enumerate}
+
+\mysubsection{Summenformeln}
+\begin{enumerate}
+    \item $\sum_{i=1}^{n} i = 1 + 2 + 3 + ... + n = \frac{n(n+1)}{2} = \frac{1}{2}n^2 + \frac{1}{2}n$
+    \item $\sum_{i=1}^{n} i^2 = 1^2 + 2^2 + 3^2 + ... + n^2 = \frac{n(n+1)(2n + 1)}{6} = \frac{1}{3}n^3 + \frac{1}{2}n^2 + \frac{1}{6}n$
+    \item $\sum_{i=1}^{n} i^3 = 1^3 + 2^3 + 3^3 + ... + n^3 = \frac{n^2(n+1)^2}{4} = \frac{1}{4}n^4 + \frac{1}{2}n^3 + \frac{1}{4}n^2$
+    \item $\sum_{k=0}^{n} aq^k = aq^0 + aq^1 + aq^2 + ... + aq^n = \frac{a(q^{n+1}-1)}{q-1}=\frac{a(1-q^{n+1})}{1-q}$
+    \item $(j+1)^2 - j^2 = 2j + 1$
+    \item $C_1 \cdot n^{k+1} \leq \sum_{i=1}^{n} i^k \leq C_2 \cdot n^{k+1}$ where $C_1 = \frac{1}{2^{k+1}}$ and $C_2 = 1$ are two constants independent of $n$. Hence, when n is large, $\sum_{i=1}^n i^k$ behaves "almost like $n^{k+1}$" up to a constant factor. In other words $\sum_{i=1}^n i^k = \theta (n^{k+1})$.
+\end{enumerate}
+
+
+\mysubsection{Grenzwerte}
+\DEF{Asymptotisches Wachstumsverhalten}{$lim_{n\rightarrow\infty}:1<\log(\log(n))<\log(n)<\sqrt{n}<n<n\log(n)<n^2<2^n<n!<n^n$.}
+
+\DEF{Wichtige Grenzwerte}{\begin{enumerate}
+    \item $lim_{n\rightarrow\infty}(1 + \frac{1}{n})=1$.
+    \item $lim_{n\rightarrow\infty}(1 + \frac{1}{n})^b=1^b=1$\hspace*{\fill}$ \forall b\in\mathbb{Z}$.
+    \item $lim_{n\rightarrow\infty}n^aq^n=0$\hspace*{\fill}$ \forall a\in\mathbb{Z},0\leq q < 1$.
+    \item $lim_{n\rightarrow\infty}(\frac{1}{1+\varepsilon})^n=0$\hspace*{\fill}$ \forall \varepsilon>0$.
+    \item $lim_{n\rightarrow\infty}\sqrt[n]{a}=1$\hspace*{\fill}$ \forall a\in\mathbb{R},a>0$.
+    \item $lim_{n\rightarrow\infty}(1+\frac{z}{n})^n=exp(z)$.
+    \item $lim_{x\rightarrow 0^+}ln(x)=-\infty$.
+    \item $lim_{x\rightarrow 0^+}x^a=0$\hspace*{\fill}$a>0$.
+    \item $lim_{x\rightarrow 0}\frac{sin(x)}{x}=1$\hspace*{\fill}$ x\in D=\mathbb{R}\setminus\{0\}$.
+    \item $lim_{x\rightarrow 0}\frac{cos(x)-1}{x}=0$.
+\end{enumerate}}
+
+
+\mysubsection{Reihen}
+\DEF{Definitionen per Potenzreihe}{
+\begin{enumerate}
+    \item $exp(x)=\sum_{n=0}^{\infty}\frac{x^n}{n!}$\hspace*{\fill} $\rho=\infty$.
+    \item $sin(x)=\sum_{n=0}^{\infty}(-1)^n\frac{x^{2n+1}}{(2n+1)!}$\hspace*{\fill} $\rho=\infty$.
+    \item $cos(x)=\sum_{n=0}^{\infty}(-1)^{n}\frac{x^{2n}}{(2n)!}$\hspace*{\fill} $\rho=\infty$.
+    \item $ln(x+1)=\sum_{n=0}^{\infty}(-1)^{n+1}\frac{x^n}{n}$\hspace*{\fill} $\rho=1$.
+\end{enumerate}}
+
+\DEF{Wichtige Reihen}{\begin{enumerate}
+    \item $\sum_{n=0}^{\infty}\frac{1}{n}$ divergiert.
+    \item $\sum_{n=0}^{\infty}\frac{1}{n^p}$ konvergiert $\forall p>1$.
+    \item $\sum_{n=0}^{\infty}\frac{(-1)^n}{n}$ konvergiert, aber nicht absolut.
+    \item $\sum_{n=0}^{\infty}\frac{1}{n^2}=\frac{\pi^2}{6}$.
+    \item $\sum_{n=0}^{\infty}\frac{1}{n(n+1)}=1$.
+    \item $\sum_{n=0}^{\infty}aq^n=\frac{a}{1-q}$\hspace*{\fill}$q\in\mathbb{C},|q|<0,a\in\mathbb{R}$.
+\end{enumerate}}
+
+
+
+\mysubsection{Uneigentliche Integrale}
+\begin{enumerate}
+    \item $\int_0^{\infty}e^{-x}dx=1$
+    \item $\int_1^{\infty}\frac{1}{x^a}dx=\begin{cases}
+    divergiert & \alpha\leq 1,\\
+    \frac{1}{\alpha-1} & \alpha > 1.
+    \end{cases}$
+    \item $\int_0^1\frac{1}{x^a}dx=\begin{cases}
+    divergiert & \alpha \geq 1,\\
+    \frac{1}{1-\alpha} & \alpha < 1.
+    \end{cases}$
+\end{enumerate}
+
+
+\mysubsection{Ableitungen}
+\begin{center}
+  % the c>{\centering\arraybackslash}X is a workaround to have a column fill up all space and still be centered
+  \begin{tabularx}{\linewidth}{c>{\centering\arraybackslash}Xc}
+  \toprule
+  $\mathbf{F(x)}$ & $\mathbf{f(x)}$ & $\mathbf{f'(x)}$ \\
+  \midrule
+  $x$ & $c$ & $0$ \\[3px]
+  $\frac{x^{c+1}}{c+1}$ & $x^c$ & $c \cdot x^{c-1}$ \\[3px]
+  $\ln |x|$ & $\frac{1}{x}$ & $-\frac{1}{x^2}$ \\[3px]
+  $\frac{x^{-c+1}}{-c+1}$ & $\frac{1}{x^c}$ & $\frac{-c}{x^{c+1}}$ \\[3px]
+  $\frac{2}{3}x^{3/2}$ & $\sqrt{x}$ & $\frac{1}{2\sqrt{x}}$\\[3px]
+  $\frac{1}{c \ln(a)}a^{cx}$ & $a^{cx}$ & $ca^{cx} \ln(a)$ \\[3px]
+  $-\cos(x)$ & $\sin(x)$ & $\cos(x)$ \\[3px]
+  $\sin(x)$ & $\cos(x)$ & $-\sin(x)$ \\[3px]
+  $\frac{1}{2}(x-\frac{1}{2}\sin(2x))$ & $\sin^2(x)$ & $2 \sin(x)\cos(x)$ \\[3px]
+  $\frac{1}{2}(x + \frac{1}{2}\sin(2x))$ & $\cos^2(x)$ & $-2\sin(x)\cos(x)$ \\[3px]
+  $-\ln|\cos(x)|$ & $\tan{x}$ & $1+\tan^2(x)=\frac{1}{cos^2(x)}$\\[3px]
+  $\ln | \sin(x)|$ & $\cot(x)$ & $\frac{-1}{\sin^2(x)}$ \\[3px]
+  $\cosh(x)$ & $\sinh(x)$ & $\cosh(x)$ \\[3px]
+  $\ln|\cosh(x)|$ & $\tanh(x)$ & $\frac{1}{\cosh^2(x)}$ \\[3px]
+  $\frac{1}{c} \cdot e^{cx}$ & $e^{cx}$ & $c \cdot e^{cx}$ \\[3px]
+  $x(\ln |x| - 1)$ & $\ln |x|$ & $\frac{1}{x}$ \\[3px]
+  $\frac{1}{2}(\ln(x))^2$ & $\frac{\ln(x)}{x}$ & $\frac{1 - \ln(x)}{x^2}$ \\[3px]
+  $\frac{x}{\ln(a)} (\ln|x| -1)$ & $\log_a |x|$ & $\frac{1}{\ln(a)x}$ \\[3px]
+  $ $ & $\arcsin(x)$ & $\frac{1}{\sqrt{1-x^2}}$ \\[3px]
+  $ $ & $\arccos(x)$ & $\frac{-1}{\sqrt{1-x^2}}$ \\[3px]
+  $ $ & $\arctan(x)$ & $\frac{1}{1+x^2}$ \\[3px]
+  $ $ & $\text{arccot}(x)$ & $\frac{-1}{1+x^2}$ \\[3px]
+  $ $ & $\text{arsinh}(x)$ & $\frac{1}{\sqrt{x^2+1}}$ \\[3px]
+  $ $ & $\text{arcosh}(x)$ & $\frac{-1}{\sqrt{x^2-1}}$ \\[3px]
+  $ $ & $\text{artanh}(x)$ & $\frac{1}{1-x^2}$ \\[3px]
+  \bottomrule
+  \end{tabularx}
+\end{center}
+
+
+\mysubsection{Algebraische Gesetze}
+\DEF{Quadratische Gleichungen Lösen}{$f(x)=ax^2+bx+c=0 \Rightarrow x=\frac{-b\pm\sqrt{D}}{2a}=\frac{-b\pm\sqrt{b^2-4ac}}{2a}$. \begin{itemize}
+    \item $D=0\Rightarrow f$ hat eine Nullstelle
+    \item $D>0\Rightarrow f$ hat zwei Nullstellen
+    \item $D<0\Rightarrow f$ hat keine Nullstellen.
+\end{itemize}}
+
+\DEF{Faktorisierung spezieller Polynome}{
+\begin{enumerate}
+    \item $x^2-y^2=(x+y)(x-y)$
+    \item $x^3+y^3=(x+y)(x^2-xy+y^2)$
+    \item $x^3-y^3=(x-y)(x^2+xy+y^2)$
+\end{enumerate}}
+
+\DEF{Binomische Formel}{Für $n\in\mathbb{N}: (x+y)^n=\sum_{k=0}^n{n\choose k}x^{n-k}y^k$ wobei ${n\choose k}$ der Binomialkoeffizient "n tief k" ist: ${n\choose k}=\frac{n!}{k!(n-k)!}=\frac{n\cdot (n-1) \cdot (n-2) \cdot ... \cdot (n-k+1)}{k\cdot (k-1) \cdot ... \cdot 3 \cdot 2 \cdot 1}={n\choose n-k}$.
+
+\begin{tabular}{>{$n=$}l<{\hspace{25pt}}*{13}{c@{\hspace{2pt}}}}
+0 &&&&&&&1&&&&&&\\
+1 &&&&&&1&&1&&&&&\\
+2 &&&&&1&&2&&1&&&&\\
+3 &&&&1&&3&&3&&1&&&\\
+4 &&&1&&4&&6&&4&&1&&\\
+5 &&1&&5&&10&&10&&5&&1&\\
+6 &1&&6&&15&&20&&15&&6&&1
+\end{tabular}}
+
+
+\DEF{Potenzieren}{\begin{enumerate}
+    \item $a^m\cdot a^n=a^{m+n}$
+    \item $\frac{a^m}{a^n}=a^{m-n}=\frac{1}{a^{n-m}}$
+    \item $(a^m)^n=a^{mn}=(a^n)^m$
+    \item $a^n\cdot b^n=(ab)^n$
+    \item $\frac{a^n}{b^n}=(\frac{a}{b})^n, b\not =0$
+    \item $a^{-n}=\frac{1}{a^n} \Leftrightarrow a^{n}=\frac{1}{a^{-n}}$
+\end{enumerate}}
+
+\DEF{Radizieren}{
+\begin{enumerate}
+    \item $\sqrt[n]{a}\cdot\sqrt[n]{b}=\sqrt[n]{ab}$
+    \item $\frac{\sqrt[n]{a}}{\sqrt[n]{b}}=\sqrt[n]{\frac{a}{b}},b\not=0$
+    \item $\sqrt[n]{\sqrt[m]{a}}=\sqrt[n\cdot m]{a}$
+    \item $a^{\frac{n}{m}}=\sqrt[m]{a^n}=\frac{1}{a^{-\frac{n}{m}}}$
+\end{enumerate}}
+
+\DEF{Logarithmieren}{
+\begin{enumerate}
+    \item $log_ac=\frac{ln(c)}{ln(a)}$
+    \item $log_a(u\cdot v)=log_au+log_av$
+    \item $log_a(\frac{u}{v})=log_au-log_av\Leftrightarrow log_a(\frac{1}{v})=-log_a(v)$
+    \item $log_a(b^n)=n\cdot log_ab$
+    \item $y=q^x\Rightarrow x=\frac{ln(y)}{ln(q)}=log_qy\Rightarrow q^{log_qy}=y$
+    \item $u^{log_av} = v^{log_au}$
+\end{enumerate}}
+
+\DEF{Weitere nützliche Eigenschaften}{
+\begin{enumerate}
+    \item $\frac{u}{v}\geq\frac{w}{x} \Leftrightarrow \frac{v}{u}\leq \frac{x}{w}\ \forall u,v,w,x\in\mathbb{R},u\not=0,v\not=0,w\not=0,x\not=0$.
+    \item $1-x\leq e^{-x}\Leftrightarrow 1+x\leq e^x\ \forall x\in\mathbb{R}$
+    \item Sei $x>0,a\in\mathbb{R}$. Dann $x^a=e^{{ln(x)}^a}=e^{ln(x)\cdot a}=exp(a\cdot ln(x))$.
+\end{enumerate}}
+
+\mysubsection{Algebraische Methoden}
+\DEF{Umkehrfunktion}{Verwenden von $log$ und $e$ für die Vereinfachung von Gleichungen mit Potenzen/Exponenten, z.B. $lim_{n\rightarrow\infty}\frac{n^{\frac{2n+3}{n+1}}}{n^2}=lim_{n\rightarrow\infty}n^{\frac{2n+3}{n+1}-2}=lim_{n\rightarrow\infty}n^{\frac{1}{n+1}}=lim_{n\rightarrow\infty}e^{ln(n^{\frac{1}{n+1}})}=lim_{n\rightarrow\infty}e^{\frac{ln(n)}{n+1}}=e^0=1$.}
+
+\DEF{Rationalisieren des Nenners}{Elimination der Wurzel im Nenner, z.B. $\frac{1}{\sqrt{2}}=\frac{1}{\sqrt{2}}\cdot\frac{\sqrt{2}}{\sqrt{2}}=\frac{\sqrt{2}}{2}$ oder $\frac{2}{\sqrt[4]{3x^2}}=\frac{2}{\sqrt[4]{3x^2}}\cdot\frac{\sqrt[4]{3^3x^2}}{\sqrt[4]{3^3x^2}}=\frac{2\sqrt[4]{27x^2}}{\sqrt[4]{3^4x^4}}=\frac{2\sqrt[4]{27x^2}}{3|x|}$.
+
+Wenn der Nenner aus zwei Termen besteht, muss man mit dem dem Konjugat des Nenners multiplizieren, z.B. $\frac{1}{4-\sqrt{x}}=\frac{1}{4-\sqrt{x}}\cdot\frac{4+\sqrt{x}}{4+\sqrt{x}}=\frac{4+\sqrt{x}}{4^2+4\sqrt{x}-4\sqrt{x}+x}=\frac{4+\sqrt{x}}{16-x}$.}
+
+\DEF{Rationalisieren des Zählers}{Selbes Prinzip wie Oben, einfach angewandt auf den Zähler.}
+
+\DEF{Linearfaktorzerlegung}{Ein Polynom von der Polynomform in die Produktform bringen. Die Nullstellen des Polynoms können von der Produktform direkt abgelesen werden. 
+\begin{enumerate}
+    \item Vorfaktor ausklammern
+    \item Nullstellen berechnen
+    \item Linearfaktoren aufstellen
+    \item in Produktform bringen
+\end{enumerate}
+Beispiel: 
+$f(x)=2x^2+3x+1 \Leftrightarrow f(x)=2(x^2+\frac{3}{2}x+\frac{1}{2})$. 
+
+$x_1,x_2=\frac{-1.5\pm\sqrt{1.5^2-4\cdot 1 \cdot 0.5}}{2\cdot 1} \Rightarrow x_1=-\frac{1}{2},x_2=-1$.
+
+$f(x)=2(x-x1)(x-x2)=2(x+\frac{1}{2})(x+1)$.
+
+Beispiel:
+$f(x)=x^3-6x^2+5x \Leftrightarrow f(x)=x(x^2-6x+5) \Rightarrow x_1=0$.
+
+$x_2,x_3=\frac{6\pm\sqrt{6^2-4\cdot 1 \cdot 5}}{2\cdot 1} \Rightarrow x_2=5,x_3=1$.
+
+$f(x)=(x-x1)(x-x2)(x-x_3)=x(x-5)(x-1)$.
+
+Merke:
+
+Für Polynome 3. Grades bei welchen wir nicht einfach $x$ ausklammern können, verwenden wir Polynomdivision durch einen Linearfaktor.}
+
+\DEF{Polynomdivision}{Ähnlich wie schriftliche Division einfach für Polynome. Anleitung: \begin{enumerate}
+    \item Fehlende Potenzen mit einem $0$-Koeffizienten auffüllen.
+    \item Rechter Pivot durch linker Pivot teilen.
+    \item Ergebnis mit Divisor multiplizieren.
+    \item Minus rechnen.
+\end{enumerate}
+
+Beispiel ohne Rest:
+
+\hspace{6px}$(x^2-3x+2):(x-1)=x-2$
+
+\underline{$-(x^2-x)$}
+
+\hspace{20px}$-2x+2$
+
+\hspace{11px}\underline{$-(-2x+2)$}
+
+\hspace{45px}$0\Rightarrow$ kein Rest, fertig.
+
+Beispiel mit Rest:
+
+\hspace{6px}$(5x^3+0x^2-7x+9):(x-2)=5x^2+10x+13+\frac{35}{x-2}$
+
+\underline{$-(5x^3-10x^2)$}
+
+\hspace{32px}$10x^2-7x$
+
+\hspace{23px}\underline{$-(10x^2-20x)$}
+
+\hspace{59px}$13x+9$
+
+\hspace{50px}\underline{$-(13x-26)$}
+
+\hspace{82px}$35\Rightarrow$ mit Rest $\Rightarrow$ durch Divisor teilen und oben addieren.
+}
+
+\DEF{Partialbruchzerlegung}{Ziel ist eine rationale Funktion als Summe von Brüchen darzustellen, wobei der Grad aller Nenner $\leq$ 2. Sei $R(x)=\frac{P(x)}{Q(x)}$ eine rationale Funktion. Seien $\gamma_1,...,\gamma_k$ die reellen Nullstellen und $\alpha_1\pm i\beta_1,...,\alpha_l\pm i\beta_l$ die komplexen Nullstellen. Sei $n_i$ die Vielfachheit von $\gamma_i$. Sei $m_j$ die Vielfachheit von $\alpha_j\pm i\beta_j$.
+
+Anleitung:
+\begin{enumerate}
+    \item Reduktion auf den Fall $deg(P) < deg(Q)$. Falls dies bereits gilt $\rightarrow$ (2). Falls nicht berechne mittels Polynomdivision $S(x),\hat{P}(x):P(x)=S(x)Q(x)+\hat{P}(x)\Leftrightarrow\frac{P(x)}{Q(x)}=S(x)+\frac{\hat{P}(x)}{Q(x)},deg(\hat{P})<deg(Q)$.
+    \item Linearfaktorzerlegung von $Q$. Also $Q(x)=\prod_{j=1}^l((x-\alpha_j)^2+\beta^2_j)^{m_j}\prod_{i=1}^k(x-\gamma_i)^{n_i}$.
+    \item Partialbrüche anhand Linearfaktoren aufstellen. \begin{itemize}
+        \item Einfache Nullstellen (Vielfachheit 1): Sei $C_i\in\mathbb{R}\ \forall i\in[k]$. Dann $\frac{P(x)}{Q(x)}=\sum_{i=1}^k \frac{C_{i}}{(x-\gamma_i)}$.
+        \item Allgemeine Nullstellen:  Sei $C_{ij}\in\mathbb{R}\ \forall i\in[k],j\in[n_i]$. Dann $\frac{P(x)}{Q(x)}=\sum_{i=1}^k\sum_{j=1}^{n_i} \frac{C_{ij}}{(x-\gamma_i)^j}$.
+        \item Allgemeine Nullstellen (auch Komplexe): Sei $C_{ij}\in\mathbb{R}\ \forall i\in[k],j\in[n_i]$. Sei $A_{ij},B_{ij}\in\mathbb{R}\ \forall i\in[l],j\in[m_i]$. Dann $\frac{P(x)}{Q(x)}=\sum_{i=1}^l\sum_{j=1}^{m_i}\frac{A_{ij}+B_{ij}x}{((x-\alpha_i)^2+\beta^2_i)^j}+\sum_{i=1}^k\sum_{j=1}^{n_i}\frac{C_{ij}}{(x-\gamma_i)^j}$.
+    \end{itemize}
+    \item Mithilfe von Koeffizienten-Vergleich ein GLS aufstellen und so $C_{ij},A_{ij},B_{ij}$ berechnen.
+\end{enumerate}}

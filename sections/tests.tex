@@ -1,0 +1,154 @@
+\mysection[LimeGreen]{Tests}
+
+\mysubsection{Grundbegriffe}
+
+\DEF{Grundprobem}{Entscheidung zwischen zwei konkurrierenden Modellklassen:
+\begin{enumerate}
+    \item die Hypothese (Nullhypothese, null hypothesis) $\Theta_0\subseteq\Theta$,
+    \item die Alternative (Alternativhypothese, Gegenhypothese, alternative hypothesis) $\Theta_A\subseteq\Theta$.
+\end{enumerate} wobei $\Theta_0\cap\Theta_A=\emptyset$.0}
+
+\DEF{Hypothesen}{\begin{enumerate}
+    \item Hypothese $H_0:\vartheta\in\Theta_0$,
+    \item Alternative $H_A:\vartheta\in\Theta_A$.
+\end{enumerate}
+
+Wenn Alternative nicht explizit spezifiziert, dann $\Theta_A=\Theta_A^{\complement}=\Theta\setminus\Theta_0$.}
+
+\DEF{Einfache Hypothesen/Alternativen}{$\Theta_0$ besteht aus einzelnem Wert $\Leftrightarrow$  $\Theta_0=\{\vartheta_0\}, |\Theta_0|=1$ $\Rightarrow$ $\Theta_0$ ist einfache Hypothese (dasselbe gilt analog für $\Theta_A$).}
+
+\DEF{Zusammengesetzte Hypothgese/Alternative}{$\Theta_0$ nicht einfach $\Rightarrow$ $\Theta_0$ ist zusammengesetzte Hypothese (analog für $\Theta_A$).}
+
+\DEF{Test}{Ein Paar $(T,K)$ wobei
+\begin{enumerate}
+    \item die Teststatistik $T=t(X_1,...,X_n)$ eine ZV mit $t:\R^n\rightarrow\R$ messbar,
+    \item kritischer Bereich oder Verwerfungsbereich $K\subseteq\R$.
+\end{enumerate}
+
+Entscheidungsregel:
+\begin{enumerate}
+    \item $T(\omega)\in K\Rightarrow H_0$ wird verworfen,
+    \item  $T(\omega)\not\in K\Rightarrow H_0$ wird angenommen.
+\end{enumerate}}
+
+\NOTE{8.3}{Die Entscheidung des Tests hängt von der Realisierung $\omega$ ab. Weil $T$ eine ZV ist, ist $\{T\in K\}=\{\omega\in\Omega|T(\omega)\in K\}$ eine (messbare) Teilmenge von $\Omega$, also ein Ereignis. Somit ist $\P_{\vartheta}[T\in K]$ über alle Modelle $\P_{\vartheta}$ hinweg bestimmbar.}
+
+\DEF{Fehlerarten}{
+\begin{enumerate}
+    \item $H_0$ wird verworfen obschon richtig $\Leftrightarrow$ $\vartheta\in\Theta_0\land T\in K$. Sei $\vartheta\in\Theta_0$. Dann ist $\P_{\vartheta}[T\in K]$ die W'keit für einen Fehler 1. Art.
+    \item $H_0$ wird angenommen obschon falsch $\Leftrightarrow$ $\vartheta\in H_A\land T\not\in K$. Sei $\vartheta\in\Theta_A$. Dann ist $\P_{\vartheta}[T\not\in K]=1-\P_{\vartheta}[T\in K]$ die W'keit für einen Fehler 2. Art.
+\end{enumerate}}
+
+\DEF{Zweistufiges Asymmetrisches Testvorgehen}{
+\begin{enumerate}
+    \item Wähle Signifikanzniveau $\alpha\in(0,1)$. Verlange $sup_{\vartheta\in\Theta_0}\P_{\vartheta}[T\in K]\leq\alpha$.
+    \item Maximiere die Macht des Tests $\beta:\Theta_A\rightarrow[0,1],\vartheta\mapsto\beta(\vartheta)=\P_{\vartheta}[T\in K]$
+\end{enumerate}
+
+Seriöse Tests sollten immer die Negation der eigentlich gewünschten Aussage als Hypothese benutzen. Denn es ist schwieriger, die Hypothese anzunehmen als zu verwerfen. Es kann also passieren, dass die gleiche inhaltiche Frage zu unterschiedlichen Entscheidungen führt, wenn man bei ihrem Test Hypothese und Alternative vertauscht.}
+
+\DEF{Randomisierter Test}{Wähle $\gamma\in[0,1]$ s.d. $\gamma\P_{\vartheta_0}[T>c]+(1-\gamma)\P_{\vartheta_0}[T>c+1]=\alpha$ und entscheide wie folgt: $T>0$ $\Rightarrow$ verwerfe $H_0$ mit W'keit $\gamma$. D.h.$H_0$ wird abgelehnt, falls \begin{enumerate}
+    \item $T>c$, und
+    \item eine unabhängige $\mathcal{U}(0,1)-$verteilte ZV einen Wert $\leq\gamma$ realisiert.
+\end{enumerate}}
+
+\mysubsection{Konstruktion von Tests}
+Seien $X_1,...,X_n$ ZV, die entweder diskret, oder gemeinsam stetig unter $\P_{\vartheta_0}$ und $\P_{\vartheta_A}$ sind.
+
+\DEF{Likelihood-Quotient}{Sei $\vartheta_0\in\Theta_0,\vartheta_A\in\Theta_A$ und $x_1,...,x_n\in\R$. Dann $R(x_1,...,x_n;\vartheta_0,\vartheta_A):=\frac{L(x_1,...,x_n;\vartheta_A)}{L(x_1,...,x_n;\vartheta_0)}$. Per Konvention gilt $L(x_1,...,x_n;\vartheta_0)=0$ $\Rightarrow$ $R(x_1,...,x_n;\vartheta_0,\vartheta_A)=\infty$.
+
+Intuition: Desto grösser $R$ desto wahrscheinlicher ist $H_A$ gegenüber von $H_0$. Man verwirft $H_0$ also wenn $R$ gross wird.}
+
+\DEF{Likelihood-Quotienten-Test}{Sei $c\geq 0$. Dann ist der Likelihood-Quotienten-Test mit Parameter $c$ ein Test $(T,K)$ mit $T=R(x_1,...,x_n;\vartheta_0,\vartheta_A)$ und $K=(c,\infty)$.}
+
+\SA{8.9 Neyman-Pearson-Lemma}{Sei $\Theta_0=\{\vartheta_0\},\Theta_A=\{\vartheta_1\}$. Sei $(T,K)$ ein Likelihood-Quotienten-Test mit $c$ und $\alpha^*:=\P_{\vartheta_0}[T\in K]$. Ist $(T',K')$ ein anderer Test mit $\P_{\vartheta_0}[T'\in K']=:\alpha\leq\alpha^*$. Dann $\P_{\vartheta_A}[T'\in K']\leq\P_{\vartheta_A}[T\in K]$.
+
+Intuition: Kleineres Signifikanzniveau führt zu kleinerer Macht bzw. grösserer W'keit für einen Fehler 2. Art.}
+
+\DEF{Verallgemeinerter Likelihood-Quotient}{\begin{align*}
+R(x_1,...,x_n)&=\frac{sup_{\vartheta\in\Theta_A}L(x_1,...,x_n;\vartheta)}{sup_{\vartheta\in\Theta_0}L(x_1,...,x_n;\vartheta)},\\
+\tilde{R}(x_1,...,x_n)&=\frac{sup_{\vartheta\in\Theta_A\cup\Theta_0}L(x_1,...,x_n;\vartheta)}{sup_{\vartheta\in\Theta_0}L(x_1,...,x_n;\vartheta)}.
+\end{align*}}
+
+\EXAMPLE{8.11 Tea tasting lady}{Im Modell $\P_{\vartheta}$ sind $X_1,...,X_n$ i.i.d. $\sim Ber(\vartheta)$. Daraus folgt
+\begin{align*}
+    p_X(x_i;\vartheta)&=\vartheta^{x_i}(1-\vartheta)^{1-x_i}\\
+\end{align*}
+\begin{align*}
+L(x_1,...,x_n;\vartheta)&=\prod_{i=1}^np_X(x_i;\vartheta)\\&=\vartheta^{\sum_{i=1}^nx_i}(1-\vartheta)^{n-\sum_{i=1}^nx_i}\\
+\end{align*}
+\begin{align*}
+R(x_1,...,x_n;\vartheta_0,\vartheta_A)&=\frac{L(x_1,...,x_n;\vartheta_A}{L(x_1,...,x_n;\vartheta_0}\\
+&=(\frac{\vartheta_A}{\vartheta_0})^{\sum_{i=1}^nx_i}(\frac{1-\vartheta_A}{1-\vartheta_0})^{n-\sum_{i=1}^nx_i}\\
+&=(\frac{\vartheta_A(1-\vartheta_0)}{\vartheta_0(1-\vartheta_A)})^{\sum_{i=1}^nx_i}(\frac{1-\vartheta_A}{1-\vartheta_0})^n.\\
+\end{align*}
+Da wegen $\vartheta_0=\frac{1}{2}\land\vartheta_A>\frac{1}{2}\Rightarrow\vartheta_0 <\vartheta_A$. Gilt 
+\begin{align*}
+    \frac{\vartheta_A(1-\vartheta_0)}{\vartheta_0(1-\vartheta_A)}=\frac{\vartheta_A-\vartheta_A\vartheta_0}{\vartheta_0-\vartheta_A\vartheta_0}>1.
+\end{align*}
+
+Somit ist $R(x_1,...,x_n;\vartheta_0,\vartheta_A)$ gross $\Leftrightarrow$ $\sum_{i=1}^nx_i=S_n$ gross.
+
+Wir wählen also als Teststatistik $T=S_n$ und als kritischen Bereich $K=(c,\infty)$.
+}
+
+\EXAMPLE{8.12}{Seien $X_1,...,X_n$ i.i.d. $\sim\mathcal{N}(\mu,\sigma^2)$ unter $\P_{\vartheta}$ mit $\sigma^2$ bekannt. Daraus folgt
+\begin{align*}
+        f_X(x_i;\vartheta)&=\frac{1}{\sigma\sqrt{2\pi}}exp(-\frac{(x_i-\vartheta)^2}{2\sigma^2})\\
+\end{align*}
+\begin{align*}
+    L(x_1,...,x_n;\vartheta)&=\prod_{i=1}^nf_X(x_i;\vartheta)\\
+    &=(2\pi\sigma^2)^{-\frac{n}{2}}exp(-\frac{1}{2\sigma^2}\sum_{i=1}^n(x_i-\vartheta)^2)\\
+\end{align*}
+\begin{align*}
+R(x_1,...,x_n;\vartheta_0,\vartheta_A)&=\frac{L(x_1,...,x_n;\vartheta_A)}{L(x_1,...,x_n;\vartheta_0)}
+\end{align*}
+\begin{align*}
+    &=exp(-\frac{1}{2\sigma^2}(\sum_{i=1}^n(x_i-\vartheta_A)^2-\sum_{i=1}^n(x_i-\vartheta_0)^2))\\
+    &=C(\sigma,\vartheta_0,\vartheta_A)exp(\frac{1}{\sigma^2}(\vartheta_A-\vartheta_0)\sum_{i=1}^nx_i)\\
+\end{align*}
+
+wobei $C$ eine von $\sigma,\vartheta_0,\vartheta_A$ abhängige Konstante ist.
+
+$R$ wird tendenziell gross, falls der Exponent $(\vartheta_A-\vartheta_0)\sum_{k=1}^nx_i$ gross ist. Hängt jedoch vom Vorzeichen $(\vartheta_A-\vartheta_0)$ ab.
+
+Wir wählen als Teststatistik $T'=\sum_{i=1}X_i$.
+\begin{enumerate}
+    \item $(\vartheta_A-\vartheta_0)>0$, so wird der Exponent gross, wenn $T'$ gross wird. Wir wählen den kritischen Bereich von der Form $K_>'=(c_>',\infty)$, d.h. wir lehnen $H_0$ ab, wenn $T'$ gross ist.
+    \item Ist $\vartheta_A-\vartheta_0<0$, so wird der Exponent gross für kleine $T'$ (d.h. negativ). Hier ist also der kritische Bereich von der Form $K_<'=(-\infty,c_<')$, d.h. wir lehnen $H_0$ ab, wenn $T'$ klein ist.
+\end{enumerate}
+
+In beiden Fällen mussen wir den kritischen Bereich noch so festlegen, dass der Test ein gewähltes Signifikanzniveau $\alpha$ einhält.
+\begin{enumerate}
+    \item Wir wollen $\P_{\vartheta_0}[T'\in K']\leq\alpha$. Dafür brauchen wir die Verteilung der Teststatistik $T'$ unter $\P_{\vartheta_0}$.
+    \item In vorliegenden Fall ist das einfach. Unter jedem $\P_{\vartheta}$ sind $X_i$ i.i.d. $\sim\mathcal{N}(\mu,\sigma^2)$ $\Rightarrow$ $T'=\sum_{i=1}^nX_i\sim\mathcal{N}(n\vartheta,n\sigma^2)$ unter $\P_{\vartheta}$ $\Leftrightarrow$ $T=\frac{\overline{X}-\vartheta}{\frac{\sigma}{\sqrt{n}}}\sim\mathcal{N}(0,1)$ unter $\P_{\vartheta}$. Wir können also $T$ statt $T'$ als Teststatistik benutzen.
+\end{enumerate}}
+
+\DEF{Gauss-Test (Z-Test)}{Seien $X_1,...,X_n$ i.i.d. $\sim\mathcal{N}(\vartheta,\sigma^2)$ unter $\P_{\vartheta}$ mit $\sigma^2$ bekannt.
+\begin{enumerate}
+    \item Hypothese: $H_0:\vartheta=\vartheta_0$.
+    \item Mögliche Alternativen: $H_A:$
+    \begin{enumerate}
+        \item $\vartheta >\vartheta_0$ (einseitig),
+        \item $\vartheta <\vartheta_0$ (einseitig),
+        \item $\vartheta\not =\vartheta_0$ (zweiseitig).
+    \end{enumerate}
+\end{enumerate}
+
+Sei wie in Beispiel 8.12 $T=\frac{\overline{X}-\vartheta}{\frac{\sigma}{\sqrt{n}}}\sim\mathcal{N}(0,1)$ unter $\P_{\vartheta_0}$.
+
+$K$ ist von der Form:
+\begin{enumerate}
+    \item $(c_>,\infty)$ bzw. $(-\infty,c_<)$ für einseitige Tests gegen die Alternative $H_A:\vartheta >\vartheta_0$ bzw. $H_A:\vartheta < \vartheta_0$, oder
+    \item $(-\infty,-c_{\not =})\cup(c_{\not=},\infty)$ für den zweiseitigen Fall. $H_0$ verwirft man hier zugunsten der Alternative $H_A:\vartheta\not=\vartheta_0$ falls  $|T|>c_{\not=}$.
+\end{enumerate}
+
+Signifikanzniveau für $\mathcal{N}(0,1)$:
+\begin{enumerate}
+    \item $\vartheta >\vartheta_0$: $\alpha=\P_{\vartheta_0}[T\in K_{>}]=\P_{\vartheta_0}[T>c_>]=1-\P_{\vartheta_0}[T\leq c_>]=1-\Phi(c_>)$ $\Rightarrow$ $c_>=\Phi^{-1}(1-\alpha)=:z_{1-\alpha}$ ist das $(1-\alpha)-$Quantil der $\mathcal{N}(0,1)-$Verteilung. Für $\vartheta >\vartheta_0$ verwirft man also $H_0$, falls $\overline{X}_n >\vartheta_0+z_{1-\alpha}\frac{\sigma}{\sqrt{n}}$.
+    \item $\vartheta <\vartheta_0$: $c_<=z_{\alpha}=-z_{1-\alpha}$. Es gilt $\alpha=\P_{\vartheta_0}[T<c_<]=\P_{\vartheta_0}[T>-c_<]$ für $-c_<=z_{1-\alpha}$.
+    \item $\vartheta\not=\vartheta_0$: $c_{\not=}=z_{1-\frac{\alpha}{2}}$. Es gilt $\alpha=\P_{\vartheta_0}[T\in K_{\not=}]=\P_{\vartheta_0}[T<-c_{\not=}]+\P_{\vartheta_0}[T>c_{\not=}]=\Phi(-c_{\not=})+1-\Phi(c_{\not=})=2(1-\Phi(c_{\not=})$.
+\end{enumerate}
+
+
+}

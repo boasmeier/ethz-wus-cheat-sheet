@@ -1,0 +1,61 @@
+\mysection[Dandelion]{Grenzwertsätze}
+
+\mysubsection{Gesetz der Grossen Zahlen}
+
+\DEF{Grundidee}{Asymptotik von ZV $\overline{X}_n$ für $n\rightarrow\infty$.}
+
+\DEF{Arithmetisches Mittel, Stichprobenmittel}{
+Seien $X_1,...,X_n$ unabhängige ZV. Sei $S_n=\sum_{k=1}^nX_k$ der Gesamtwert. Dann ist $\overline{X}_n=\frac{1}{n}S_n=\frac{1}{n}\sum_{k=1}^{n}X_k$ das arithmetische Mittel bzw. Stichprobenmittel. Eine Realisierung des Stichprobenmittels, $\overline{X}_n(\omega)$ wird auch empirischer Mittelwert genannt.}
+
+\SA{6.2 Schwaches Gesetz der Grossen Zahlen}{Sei $X_1,X_2,...$ eine Folge unabhänbgiger ZV mit $\E[X_k]=\mu,\V[X_k]=\sigma^2$ $\forall k\geq 1$. Dann $\forall\varepsilon > 0: \P[|\overline{X}_n-\mu|>\varepsilon]\stackrel{n\rightarrow\infty}{ \rightarrow}0.$}
+
+\SA{6.5 Starkes Gesetz der Grossen Zahlen}{Sei $X_1,X_2,...$ eine Folge unabhänbgiger ZV, die alle dieselbe Verteilung haben mit $\E[X_k]$ endlich $\forall k\geq 1$. Dann $\overline{X}_n\stackrel{n\rightarrow\infty}{ \rightarrow}\mu$ $\P-$fast sicher. Also $\P[\{\omega\in\Omega|\overline{X}_n(\omega)\stackrel{n\rightarrow\infty}{ \rightarrow}\mu\}]=1$.}
+
+
+\mysubsection{Zentraler Grenzwertsatz}
+
+\DEF{Grundidee}{Asymptotik von Verteilungen oder Verteilungsfunktionen von $S_n$ für $n\rightarrow\infty$.}
+
+\DEF{Konvergenz in Verteilung}{Seien $(X_n)_{n\in\N}$ und $X$ ZV mit Verteilungsfunktionen $(F_n)_{n\in\N}$ und $F$. Wenn $\forall x\in\R$ stetig in $F$: $\lim_{n\rightarrow\infty}F_n(x)=\lim_{n\rightarrow\infty}\P[X_n\leq x]=\P[X\leq x]=F(x)$ $\Rightarrow$ $(X_n)_{n\in\N}$ konvergiert in Verteilung gegen $X$ $\Leftrightarrow$ $X_n\stackrel{d}{\rightarrow}X$ für $n\rightarrow\infty$.
+
+\begin{enumerate}
+    \item $X_n\stackrel{d}{\rightarrow}X$ ("convergence in distribution").
+    \item $X_n\stackrel{w}{\rightarrow}X$ ("weak convergence").
+    \item $X_n\stackrel{L}{\rightarrow}X$ ("convergence in law").
+\end{enumerate}}
+
+\SA{6.10 Zentraler Grenzwertsatz, ZGS}{Sei $(X_k)_{k\in\N}$ eine Folge von i.i.d. ZV mit $\E[X_k]=\mu$ und $\V[X_k]=\sigma^2$. Dann ist $S_n^*=\frac{S_n-n\mu}{\sigma\sqrt{n}}=\frac{S_n-\E[S_n]}{\sqrt{\V[S_n]}}$ die Standardisierung von $S_n$ und $\forall x\in\R:$ $$\lim_{n\rightarrow\infty}\P[S_n^*\leq x]=\Phi(x),$$ wobei $\Phi$ Verteilungsfunktion von $\mathcal{N}(0,1)$.
+
+Man kann leicht nachrechnen, dass
+\begin{enumerate}
+    \item $\E[S_n]=n\mu,\E[S_n^*]=0$,
+    \item $\V[S_n]=n\sigma^2,\V[S_n^*]=1$.
+\end{enumerate}}
+
+\NOTE{6.12}{\begin{align*}
+    \lim_{n\rightarrow\infty}\P[S_n^*\leq x]=\Phi(x)&\Leftrightarrow \P[S_n^*\leq x]\approx\Phi(x)\ \text{für $n$ gross}\\
+    &\Leftrightarrow S_n^*\stackrel{approx.}{\sim}\mathcal{N}(0,1)\ \text{für $n$ gross}\\
+    &\Leftrightarrow S_n\stackrel{approx.}{\sim}\mathcal{N}(n\mu,n\sigma^2)\\
+    &\Leftrightarrow \overline{X}_n\stackrel{approx.}{\sim}\mathcal{N}(\mu,\frac{1}{n}\sigma^2).
+\end{align*}}
+
+\NOTE{6.15 Kontinuitätskorrektur}{Liefert etwas genauere Approximation für die Binomialverteilung als der ZGS.
+
+Für $S_n\sim Bin(n,p)\Rightarrow S_n\stackrel{approx.}{\sim}\mathcal{N}(np,np(1-p))$ und \begin{align*}
+    \P[a<S_n\leq b]&=\P[\frac{a-np}{\sqrt{np(1-p)}}<S_n^*\leq\frac{b-np}{\sqrt{np(1-p)}}]\\
+    &\approx\Phi(\frac{b+\frac{1}{2}-np}{\sqrt{np(1-p)}})-\Phi(\frac{a+\frac{1}{2}-np}{\sqrt{np(1-p)}}).
+\end{align*}
+
+Die Korrektur um $+\frac{1}{2}$ kommt dadurch, dass die Approximation der Binomial-Wahrscheinlichkeiten besser wird, wenn man die Stäbe aus dem Histogramm jeweils zentriert über die relevanten Werte von $a$ bis $b$ setzt.}
+
+\DEF{Momenterzeugende Funktion}{Sei $X$ eine ZV. Sei $t\in\R$. Dann $M_X(t)=\E[e^{tX}]$. Ist immer wohldefiniert in $[0,\infty]$, kann aber $\infty$ werden.
+
+\begin{enumerate}
+    \item $X\sim Ber(p)\Rightarrow M_X(t)=\E[e^{tX}]=1-p+pe^t$.
+    \item $X\sim Bin(n,p)\Rightarrow M_X(t)=\E[e^{tX}]=(1-p+pe^t)^n$.
+    \item $X\sim\mathcal{N}(0,1)\Rightarrow M_X(t)=\E[e^{tX}]=e^{t^2\frac{1}{2}}$.
+\end{enumerate}}
+
+\DEF{Chernoff-Ungleichung}{Seien $X_1,...,X_n$ i.i.d. ZV s.d. $M_X(t)<\infty\ \forall t\in\R$. Dann gilt $\forall b\in\R:\P[S_n\geq b]\leq exp(inf_{t\in\R}(nlog(M_X(t))-tb))$.}
+
+

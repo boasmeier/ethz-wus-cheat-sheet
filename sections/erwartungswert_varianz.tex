@@ -1,8 +1,10 @@
-\mysection[JungleGreen]{\centering Erwartungswert, Varianz, Covarianz}
-\mysubsection{Allgemeiner Erwartungswert}
-\DEF{Erwartungswert (nicht-negativ)}{Sei $X:\Omega\rightarrow\mathbb{R}_+$ eine ZV mit nicht-negativen Werten. Dann $\mathbb{E}[X]=\int_0^{\infty}(1-F_X(x))dx$ der Erwartungswert von $X$.}
+\mysection[JungleGreen]{Erwartungswert, Varianz, Covarianz}
 
-\SA{}{Sei $X$ eine nicht-negative ZV. Dann gilt $\mathbb{E}[X]\geq 0$. Gleichheit gilt genau dann wenn $X=0$ fast sicher gilt.}
+\mysubsection{Allgemeiner Erwartungswert}
+
+\DEF{4.1 Erwartungswert (nicht-negativ)}{Sei $X:\Omega\rightarrow\R_+$ eine ZV mit nicht-negativen Werten. Dann $\E[X]=\int_0^{\infty}(1-F_X(x))dx$ der Erwartungswert von $X$.}
+
+\SA{4.3}{Sei $X$ eine nicht-negative ZV. Dann gilt $\E[X]\geq 0$. Gleichheit gilt genau dann wenn $X=0$ fast sicher gilt.}
 
 \DEF{Zerlegung von $X$ in positiven und negativen Teil}{ Der positive und negative Teil von $X$ sind die ZV $X_+,X_-$ definiert durch $X_+(w)=max(X,0)=\begin{cases}
     X(w) & \text{$X(w)\geq 0,$}\\
@@ -12,19 +14,163 @@
     0 & \text{$X(w)>0.$}
 \end{cases}$. 
 
-Es gilt $X=X_+-X_-$ und $|X|=X_++X_-$.}
+Eigenschaften:
+\begin{enumerate}
+    \item $X=X_+-X_-$ und $|X|=X_++X_-$.
+    \item $F_{X_+}(x)=0\ \forall x<0$.
+    \item $F_{X_+}(x)=F_X(x)\ \forall x>0$.
+    \item $F_{X_-}(x)=0\ \forall x<0$.
+    \item $F_{X_-}(x)=1-F_X(-x)\ \forall x>0$.    
+\end{enumerate}}
 
-\DEF{Allgemeiner Erwartungswert}{Sei $X$ eine reellwertige ZV. $\mathbb{E}[|X|]<\infty \Rightarrow \mathbb{E}[X_-],\mathbb{E}[X_+]<\infty \Rightarrow \mathbb{E}[X]=\mathbb{E}[X_+]-\mathbb[X_-]$. 
+\DEF{4.4 Allgemeiner Erwartungswert}{Sei $X$ eine reellwertige ZV. 
 
-Für $X\geq 0$ ist $\mathbb{E}[X]$ immer definiert und kann endlich oder unendlich sein. Wenn $X$ hingegen kein konstantes Vorzeichen hat und $\mathbb{E}[|X|]<\infty$ nicht erfüllt $\Rightarrow \mathbb{E}[X]$ undefiniert.}
+\begin{enumerate}
+    \item $\E[|X|]<\infty \Rightarrow \E[X_-],\E[X_+]<\infty \Rightarrow \E[X]=\E[X_+]-\E[X_-]$.
+    \item Für $X\geq 0$ ist $\E[X]$ immer definiert und kann endlich oder unendlich sein.
+    \item  Wenn $X$ hingegen kein konstantes Vorzeichen hat und $\E[|X|]<\infty$ nicht erfüllt $\Rightarrow \E[X]$ undefiniert.
+\end{enumerate}}
 
 
 \mysubsection{Erwartungswert diskreter ZV}
-\DEF{Erwartungswert (diskret)}{Sei $X:\Omega\rightarrow\mathbb{R}$ eine diskrete ZV, deren Werte fast sicher in $W$ (endlich oder abzählbar) liegen. Dann gilt $\mathbb{E}[X]=\sum_{x\in W}x\cdot\mathbb{P}[X=x]=\sum_{x\in W}x\cdot p_X(x)$, sofern $\mathbb{E}[X]$ wohldefiniert.}
+\DEF{Erwartungswert (diskret)}{Sei $X:\Omega\rightarrow\R$ eine diskrete ZV, deren Werte fast sicher in $W$ (endlich oder abzählbar) liegen. Dann gilt $\E[X]=\sum_{x\in W}x\cdot\P[X=x]=\sum_{x\in W}x\cdot p_X(x)$, sofern $\E[X]$ wohldefiniert.}
 
-\SA{}{Sei $X:\Omega\rightarrow\mathbb{R}$ eine diskrete ZV. $\mathbb{E}[X]$ wohldefiniert $\Leftrightarrow$ Reihe $\sum_{x\in W}x\cdot\mathbb{P}[X=x]$ konvergiert absolut $\Leftrightarrow \sum_{x\in W}|x|\cdot\mathbb{P}[X=x]<\infty$.}
+\SA{4.9}{Sei $X:\Omega\rightarrow\R$ eine diskrete ZV. $\E[X]$ wohldefiniert $\Leftrightarrow$ Reihe $\sum_{x\in W}x\cdot\P[X=x]$ konvergiert absolut $\Leftrightarrow \sum_{x\in W}|x|\cdot\P[X=x]<\infty$.}
 
-\SA{}{Sei $X:\Omega\rightarrow\mathbb{R}$ eine diskrete ZV. Sei $\varphi:\mathbb{R}\rightarrow\mathbb{R}$. Dann $\mathbb{E}[\varphi(X)]=\sum_{x\in W}\varphi(x)\cdot\mathbb{P}[X=x]$, sofern $\mathbb{E}[X]$ wohldefiniert.}
+\SA{4.15}{Sei $X:\Omega\rightarrow\R$ eine diskrete ZV. Sei $\varphi:\R\rightarrow\R$. Dann $\E[\varphi(X)]=\sum_{x\in W}\varphi(x)\cdot\P[X=x]$, sofern $\E[X]$ wohldefiniert.}
 
 
 \mysubsection{Erwartungswert stetiger ZV}
+\DEF{4.17 Erwartungswert (stetig)}{Sei $X$ stetige ZV mit Dichte $f_X$. Dann 
+\begin{enumerate}
+    \item $\int_{-\infty}^{\infty}|x|f_X(x)dx<\infty$ $\Rightarrow$ $\E[X]=\int_{-\infty}^{\infty}xf_X(x)dx$.
+    \item $\int_{-\infty}^{\infty}|x|f_X(x)dx=\infty$ $\Rightarrow$ $\not\exists\ \E[X]$.
+\end{enumerate}}
+
+\DEF{4.18 Erwartungswert transformierter ZV (stetig)}{Sei $X$ stetige ZV mit Dichte $f_X$. Sei $\varphi:\R\rightarrow\R$. Dann $\E[\varphi(X)]=\int_{-\infty}^{\infty}\varphi(x)f_X(x)dx$.}
+
+\mysubsection{Eigenschaften des Erwartungswertes}
+\DEF{Linearität}{Seien $X,Y:\Omega\rightarrow\R$ ZV. Sei $\lambda\in\R$. Falls die Erwartungswerte wohldefiniert:
+\begin{enumerate}
+    \item $\E[\lambda X]=\lambda\E[X]$.
+    \item $\E[X+Y]=\E[X]+\E[Y]$.
+\end{enumerate}}
+
+\NOTE{4.26}{Seien $X_k:\Omega\rightarrow\R$. Seien $\lambda_k\in\R,\ k\in [n]$. Dann 
+$\E[\sum_{k=1}^n\lambda_kX_k]=\sum_{k=1}^n\lambda_k\E[X_k]$.}
+
+\DEF{Monotonie}{Seien $X,Y$ ZV s.d. $X\leq Y$ f.s. Falls beide Erwartungswerte wohldefiniert, gilt: $\E[X]\leq\E[Y]$.}
+
+\DEF{Unabhängigkeit}{Seien $X_1,...,X_n$ unabhängige ZV mit endlichen Erwartungswerten. Dann $\E[\prod_{k=1}^nX_k]=\prod_{k=1}^n\E[X_k]$. Achtung: Umkehrung gilt nicht!}
+
+\NOTE{}{Sei $X\sim\mathcal{U}([-1,1])$ und $Y\sim\mathcal{N}(0,1)$. Dann $\E[X]=\E[Y]=0$ aber $f_X\not = f_Y$.}
+
+\SA{4.32}{Sei $X$ eine ZV. Sei $f:\R\rightarrow\R_+$ s.d. $\int_{-\infty}^{\infty}f(x)dx=1$. Dann folgendes Äquivalent:
+\begin{enumerate}
+    \item $X$ stetig mit Dichte $f$
+    \item $\forall$ stückweise stetige, beschränkte Abbildungen $\varphi:\R\rightarrow\R$ gilt $\E[\varphi(X)]=\int_{-\infty}^{\infty}\varphi(x)f(x)dx$.
+\end{enumerate}}
+
+\SA{4.33/34}{Seien $X_1,...,X_n$ ZV. Äquivalent:
+\begin{enumerate}
+    \item $X_1,...,X_n$ sind unabhängig
+    \item $\forall$ stückweise stetigen, beschränkten Abbildungen $\varphi_1,...,\varphi_n:\R\rightarrow\R:$ $\E[\varphi_1(X_1)\cdot...\cdot\varphi_n(X_n)]=\E[\varphi_1(X_1)]\cdot...\cdot\E[\varphi_n(X_n)]$.
+\end{enumerate}}
+
+\mysubsection{Ungleichungen}
+\DEF{Markow-Ungleichung}{Sei $X$ nicht-negative ZV. Sei $g:X(\Omega)\rightarrow[0,\infty)$ monoton wachsend. $\forall\ c\in\R$ mit $g(c)>0:$ $\P[X\geq c]\leq\frac{\E[g(X)]}{g(c)}$.}
+
+\DEF{Chebyshev-Ungleichung}{Sei $X$ ZV mit endlicher Varianz. $\forall c>0$ gilt $\P[|X-\E[X]|\geq c]\leq\frac{\V[X]}{c^2}$.}
+
+\DEF{Chernoff-Schranke}{Seien $X_1,...,X_n$ unabhängig mit $X_k\sim Ber(p_k)$, $S_n=\sum_{k=1}^nX_k$, $\mu_n=\E[S_n]=\sum_{k=1}^np_k$, $\delta > 0$. Dann $\P[S_n\geq(1+\delta)\mu_n]\leq(\frac{e^{\delta}}{(1+\delta)^{1+\delta}})^{\mu_n}$.}
+
+\DEF{Jensensche Ungleichung}{Sei $X$ ZV. Sei $\varphi:\R\rightarrow\R$ konvex. Falls $\E[\varphi(X)]$ und $\E[X]$ wohldefiniert, gilt $\varphi(\E[X])\leq\E[\varphi(X)]$.}
+
+\DEF{Dreiecksungleichung}{Anwendung der Jensenschen Ungleichung auf $\varphi(x)=|x|$ liefert $|\E[X]|\leq\E[|X|]$.}
+
+\COR{4.37}{Anwendung der Jensenschen Ungleichung auf $\varphi(x)=x^2$ liefert $\E[|X|]\leq\sqrt{\E[X^2]}$.}
+
+\mysubsection{Varianz}
+\DEF{Varianz}{Sei $X$ eine ZV s.d. $\E[X^2]<\infty$. Dann $\V[X]=\E[(X-\E[X])^2]=\E[X^2]-\E[X]^2$.}
+
+\DEF{Standardabweichung}{Die Wurzel der Varianz. Wird oft mit $\sigma=\sigma_X=\sigma(X)=\sqrt{\V[X]}$ bezeichnet.}
+
+\NOTE{4.39/42}{\begin{enumerate}
+    \item $\E[X^2]<\infty\Rightarrow\E[|X|]<\infty\Rightarrow\E[X]<\infty$ (C4.37).
+    \item Varianz bzw. Standardabweichung ist ein Indikator für die Fluktuation um den Mittelwert $\E[X]$ herum.
+    \item $\V[X]\geq 0$ $\forall$ $X$ mit $\E[X^2]<\infty$.
+    \item $\V[X]=0\Leftrightarrow X$ konstant.
+\end{enumerate}}
+
+\EXAMPLE{Deterministische ZV}{Sei $a\in\R$. Sei $X$ eine deterministische ZV (=Konstante) mit $X=a1_{\Omega}$. Dann $\E[X]=a\E[1_{\Omega}]=a\P[\Omega]=a$ und $\V[X]=\E[(X-\E[X])^2]=\E[X^2]-\E[X]^2=a^2\E[1_{\Omega}]-a^2=0$.}
+
+\DEF{Translation}{Sei $X$ eine ZV s.d. $\E[X^2]<\infty$. Seien $a,b\in\R$. Dann $\V[a\cdot X+b]=a^2\cdot\V[X]$.}
+
+\DEF{4.46 Additivität}{Seien $X_1,...,X_n$ paarweise unabhängige ZV. Dann $\V[\sum_{k=1}^nX_k]=\sum_{k=1}^n\V[X_k]$.}
+
+
+\mysubsection{Kovarianz}
+Intuition: Die Kovarianz beschreibt inwiefern zwei ZV $X,Y$ miteinander "verknüpft" sind.
+
+\DEF{Kovarianz}{Seien $X,Y$ zwei ZV mit endlichen zweiten Momenten, $\E[X^2],\E[Y^2]<\infty$. Dann $cov(X,Y)=\E[(X-\E[X])(Y-\E[Y])]=\E[XY]-\E[X]\E[Y]$.}
+
+\NOTE{Wohldefiniertheit}{Wird durch die Endlichkeit der zweiten Momente sichergestellt: $|XY|\leq\frac{1}{2}X^2+\frac{1}{2}Y^2\Rightarrow\E[XY]\leq\frac{1}{2}\E[X^2]+\frac{1}{2}\E[Y^2]<\infty$.}
+
+\NOTE{4.54}{Die Kovarianz ist die Verallgemeinerung der Varianz: $cov(X,X)=\V[X]$.}
+
+\NOTE{4.55}{\begin{enumerate}
+    \item $X,Y$ unabhängig $\Rightarrow cov(X,Y)=0$.
+    \item $X,Y$ unabhängig $\Leftrightarrow$ $\forall\varphi,\psi$ stückweise stetig, beschränkt gilt $cov(\varphi(X),\psi(Y))=0$.
+\end{enumerate}}
+
+\NOTE{4.56}{\begin{enumerate}
+    \item $cov(X,Y)>0\Rightarrow X,Y$ positiv korreliert.
+    \item $cov(X,Y)=0\Rightarrow X,Y$ unkorreliert.
+    \item $cov(X,Y)<0\Rightarrow X,Y$ negativ korreliert $\Leftrightarrow$ antikorreliert.
+\end{enumerate}}
+
+\EXAMPLE{4.57}{Gegenbeispiele zu $cov(X,Y)=0\Rightarrow$ $X,Y$ unabhängig:
+\begin{enumerate}
+    \item $X\sim\mathcal{N}(0,1), Y=X^2$.
+    \item $X\sim\mathcal{U}([-1,1]), Y=X^2$
+\end{enumerate}}
+
+\DEF{Eigenschaften der Kovarianz}{Seien $X,Y,Z$ ZV mit endlichem zweiten Moment. Seien $a,b,c,d,e,f,g,h\in\R$.
+\begin{enumerate}
+    \item Positive Semidefinitheit: $cov(X,X)\geq 0$.
+    \item Symmetrie: $cov(X,Y)=cov(Y,X)$.
+    \item Bilinearität: \begin{enumerate}
+        \item $cov(aX+b,cY+d)=a\cdot c\cdot cov(X,Y)$.
+        \item $cov(X,(eY+f)+(gZ+h))=e\cdot cov(X,Y)+g\cdot cov(X,Z)$.
+    \end{enumerate}
+\end{enumerate}
+
+Somit definiert die Kovarianz eine positiv semidefinite symmetrische Bilinearform auf dem Vektorraum der quadratisch integrierbaren ZV.}
+
+\SA{4.59}{Seien $X_1,...,X_n$ ZV mit endlichen zweiten Momenten. Dann
+\begin{align*}
+\V[\sum_{k=1}^nX_k]&=
+\sum_{k,l=1}^ncov(X_k,X_l)\\
+&=\sum_{k=1}^n\V[X_k]+\sum_{k,l=1,k\not = l}^ncov(X_k,X_l)\\
+&=\sum_{k=1}^n\V[X_k]+2\sum_{k=1}^{n-1}\sum_{l=k+1}^ncov(X_k,X_l).
+\end{align*}
+
+Spezialfall $n=2$:
+\begin{itemize}
+    \item $\V[X_1+X_2]=\V[X_1]+\V[X_2]+2cov(X_1,X_2)$.
+    \item $\V[X_1-X_2]=\V[X_1]+\V[X_2]-2cov(X_1,X_2)$.
+\end{itemize}
+
+Spezialfall $n=3$:
+\begin{itemize}
+    \item $\V[X_1+X_2+X_3]=\V[X_1]+\V[X_2]+\V[X_3]+2cov(X_1,X_2)+2cov(X_2,X_3)+2cov(X_1,X_3)$.
+\end{itemize}}
+
+\DEF{Kovarianzmatrix}{Verallgemeinerung der Varianz einer eindimensionalen Zufallsvariable auf eine mehrdimensionale Zufallsvariable, d.h. auf einen Zufallsvektor $\textbf{X}=(X_1,...,X_n)^T$.
+
+$\Sigma = cov(\bf{X})=\begin{bmatrix}
+\V[X_1] & cov(X_1,X_2 & \hdots & cov(X_1,X_n)\\
+cov(X_2,X_1) & \V[X_2] & \hdots & cov(X_2,X_n)\\
+\vdots & \vdots & \ddots & \vdots\\
+cov(X_n,X_1) & cov(X_n,X_2) & \hdots & \V[X_n]
+\end{bmatrix}$}

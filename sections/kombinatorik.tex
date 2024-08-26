@@ -1,4 +1,4 @@
-\mysection[Orchid]{\centering Kombinatorik}
+\mysection[Orchid]{Kombinatorik}
 \DEF{Produktregel}{Sei $n1, n2\in\mathbb{N}$ die \# Auswahlmöglichkeiten des ersten bzw. zweiten Elements. Wobei $n1$ und $n2$ unabhängig. Dann sind die \# Auswahlmöglichkeiten insgesamt gegeben durch $n = n1 \cdot n2$.}
 
 \DEF{Summenregel}{Sei $n1, n2\in\mathbb{N}$ die \# Auswahlmöglichkeiten des ersten bzw. zweiten Elements. Wobei $n1$ und $n2$ nicht gleichzeitig eintreten können, also abhängig sind. Dann sind die \# Auswahlmöglichkeiten insgesamt gegeben durch $n = n1+n2$.}
@@ -15,8 +15,10 @@
 
 \DEF{Kombinationen ohne Wiederholung}{Man kann $k\leq n$ aus den $n$ paarweise verschiedenen Elementen auf ${n\choose k}=\frac{n^{\underline{k}}}{k!}=\frac{n\cdot(n-1)\cdot ...\cdot(n-k+1)}{k\cdot (k-1) \cdot ... \cdot 1}=\frac{n!}{k!(n-k)!}={n\choose n-k}$ viele Arten auswählen, wobei Elemente nicht mehrfach verwendet werden können (ohne Zurücklegen).}
 
-\DEF{Kombinationen mit Wiederholung}{Man kann $k$ aus den $n$ paarweise verschiedenen Elementen auf ${n+k-1\choose k}=\frac{(n+k-1)!}{k!(n-1)!}$ viele Arten auswählen, wobei Elemente mehrfach verwendet werden können (mit Zurücklegen).}
+\DEF{Kombinationen mit Wiederholung}{Man kann $k$ aus den $n$ paarweise verschiedenen Elementen auf ${n+k-1\choose k}=\frac{(n+k-1)!}{k!(n-1)!}$ viele Arten auswählen, wobei Elemente mehrfach verwendet werden können (mit Zurücklegen). \textit{Beweisidee}: Stars and Bars.}
 
 \DEF{Variationen ohne Wiederholung}{Man kann mit $n$ paarweise verschiedenen Elementen $n^{\underline{m}}=\frac{n!}{(n-m)!} = n\cdot (n-1)\cdot ...\cdot (n-(m-1))$ viele Sequenzen der Länge $m$ bilden, wobei Elemente nicht mehrfach verwendet werden können (ohne Zurücklegen).}
 
 \DEF{Variationen mit Wiederholung}{Man kann mit $n$ paarweise verschiedenen Elementen $n^m$ viele Sequenzen der Länge $m$ bilden, wobei Elemente mehrfach verwendet werden können (mit Zurücklegen).}
+
+\DEF{Catalan-Number}{Die Catalan-Zahl $C_n:=\frac{1}{n+1}\cdot{2n\choose n}=\frac{1}{n+1}\cdot\frac{(2n)!}{n!\cdot(2n-n)!}=\frac{(2n)!}{n!\cdot(n+1)!}$ gibt an, auf wie viele verschiedene Arten man für $n+1$ Faktoren Klammern setzen kann.}
